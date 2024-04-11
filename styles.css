@@ -1,0 +1,149 @@
+:root {
+    --slideshow-box-size: 170px;
+}
+
+html, body {
+    background-color: #134;
+}
+
+.rubik-mono {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.akshar {
+    font-family: "Akshar", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.slideshow-container {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(var(--slideshow-box-size), 1fr));
+    gap: 20px;
+    transition: grid-template-columns 0.5s ease;
+}
+
+@media (max-width: 1220px) {
+    .slideshow-container {
+        grid-template-columns: repeat(3, minmax(170px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .slideshow-container {
+        grid-template-columns: repeat(1, minmax(170px, 1fr));
+    }
+}
+
+.slideshow-img-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    overflow: hidden;
+    transition: border-radius 1s;
+}
+
+.slideshow {
+    position: relative;
+    max-width: var(--slideshow-box-size);
+    height: var(--slideshow-box-size);
+    /*mask-image: radial-gradient(#ffff 60%, #0000 61%);
+    mask-mode: alpha;*/
+    overflow: hidden;
+    border-radius: 100px;
+    transition: border-radius 1s;
+}
+    .slideshow:hover {
+        border-radius: 10px;
+        transition: border-radius .3s;
+    }
+
+    .slideshow:hover .text-overlay {
+        transform: translate(-50%, -55%);
+        letter-spacing: 2px;
+    }
+
+    .slideshow img {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: auto;
+        height: auto;
+        opacity: 0;
+        transition: opacity 1s ease, left 12s linear, top 12s linear;
+    }
+
+        .slideshow img.active {
+            opacity: 1;
+        }
+
+.text-overlay {
+    background-image: linear-gradient(30deg, #7DAF9C, #ccaacc, #23967F);
+    border-radius: 30px;
+    padding: 0px 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-size: 50px;
+    font-family: "Akshar", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    mix-blend-mode: hard-light;
+    letter-spacing: 0px;
+    transition: transform 0.2s ease, letter-spacing 0.3s ease;
+}
+
+/*    .text-overlay:hover {
+        transform: translate(-50%, -55%);
+        letter-spacing: 2px;
+    }*/
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+#slideshow-item-home {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#slideshow-item-music, #slideshow-item-art,
+#slideshow-item-writing, #slideshow-item-games,
+#slideshow-item-design {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+/*
+        Was originally trying to get these set up so the icons read "CANANA",
+        and when you mouse over them, the masks disappear
+        had trouble but I left these here!
+
+#slideshow-item-home {
+    -webkit-mask-image: url('./res/img/overview/svg-mask/C.svg');
+    mask-image: url('./res/img/overview/svg-mask/C.svg');
+
+}
+
+#slideshow-item-music, #slideshow-item-art, #slideshow-item-writing {
+    -webkit-mask-image: url('./res/img/overview/svg-mask/A.svg');
+    mask-image: url('./res/img/overview/svg-mask/A.svg');
+}
+
+#slideshow-item-games, #slideshow-item-design {
+    -webkit-mask-image: url('./res/img/overview/svg-mask/N.svg');
+    mask-image: url('./res/img/overview/svg-mask/N.svg');
+}*/
